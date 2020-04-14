@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'artist'], function() {
+    Route::get('profile/create', 'artists\ProfileController@add');
+});
