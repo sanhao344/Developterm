@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'artist'], function() {
     Route::get('profile/create', 'artists\ProfileController@add');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
