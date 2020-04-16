@@ -27,6 +27,8 @@
             </div>
         @endsection
 
-        @include('layout.sidebar')
+        @section('sidebar')
+            @include('layouts.sidebar')
+        @endsection
     </body>
 </html>
