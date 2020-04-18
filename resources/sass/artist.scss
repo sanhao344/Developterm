@@ -5,6 +5,12 @@ body {
     color: #fff;
   }
 
+body:after {
+    clear: both;
+    display: block;
+    content: " ";
+  }
+
   h1 {
       position: center;
   }

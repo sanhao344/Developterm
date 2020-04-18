@@ -16,7 +16,9 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'artist'], function() {
-    Route::get('profile/create', 'artists\ProfileController@add');
+    Route::get('profile/create', 'Artists\ProfileController@add')->middleware('auth');
+    Route::post('profile/create', 'Artists\ProfileController@create')->middleware('auth');
+    Route::post('profile/edit', 'Artists\ProfileController@edit')->middleware('auth');
 });
 
 Auth::routes();
