@@ -23,6 +23,8 @@ Route::group(['prefix' => 'artist'], function() {
     Route::post('profile/edit', 'Artists\ProfileController@update')->middleware('auth');
     Route::get('works/create', 'Artists\WorkController@add')->middleware('auth');
     Route::post('works/create', 'Artists\WorkController@create')->middleware('auth');
+    Route::get('works/edit', 'Artists\WorkController@edit')->middleware('auth');
+    Route::post('works/edit', 'Artists\WorkController@update')->middleware('auth');
 });
 
 Auth::routes();

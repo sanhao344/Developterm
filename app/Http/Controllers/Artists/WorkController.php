@@ -54,7 +54,7 @@ class WorkController extends Controller
         return view('artist.works.edit', ['work_form' => $work]);
     }
 
-    public function update()
+    public function update(Request $request)
     {
         // Validationをかける
       $this->validate($request, Work::$rules);
@@ -73,7 +73,7 @@ class WorkController extends Controller
       unset($work_form['_token']);
       // 該当するデータを上書きして保存する
       $work->fill($work_form)->save();
-        return redirect('artist/profile');
+        return redirect('artist/works/create');
     }
 
     public function delete()
