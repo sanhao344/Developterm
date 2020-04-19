@@ -41,7 +41,7 @@ class ProfileController extends Controller
             $profile->fill($form);
             $profile->save();
       
-        return redirect('artist/profile/create');
+        return redirect('artist/profile');
     }
 
     public function edit(Request $request)
@@ -74,7 +74,7 @@ class ProfileController extends Controller
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();
 
-        return redirect('artist/profile/edit');
+        return redirect('artist/profile');
     }
 
 }

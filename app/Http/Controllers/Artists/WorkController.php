@@ -43,14 +43,36 @@ class WorkController extends Controller
         return redirect('artist/work/create');
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
-        return view('artist.profile.edit');
+         // Work Modelからデータを取得する
+      $work = Work::find($request->id);
+      if (empty($work)) {
+        abort(404);
+      }
+        return view('artist.work.edit', ['work_form' => $work]);
     }
 
     public function update()
     {
-        return redirect('artist/profile/edit');
+        // Validationをかける
+      $this->validate($request, Work::$rules);
+      // Work Modelからデータを取得する
+      $work = Work::find($request->id);
+      // 送信されてきたフォームデータを格納する
+      $work_form = $request->all();
+      if (isset($work_form['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $work->image_path = basename($path);
+        unset($work_form['image']);
+      } elseif (isset($request->remove)) {
+        $work->image_path = null;
+        unset($work_form['remove']);
+      }
+      unset($work_form['_token']);
+      // 該当するデータを上書きして保存する
+      $work->fill($work_form)->save();
+        return redirect('artist/profile');
     }
 
     public function delete()
