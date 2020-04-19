@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Artists;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Work;
 
 class WorkController extends Controller
 {
     //
     public function add()
     {
-        return view('artist.work.create');
+        return view('artist.works.create');
     }
     
     //redirect先をartistのプロフィール画面にするのを忘れない
@@ -40,7 +41,7 @@ class WorkController extends Controller
             $works->fill($form);
             $works->save();
       
-        return redirect('artist/work/create');
+        return redirect('artist/works/create');
     }
 
     public function edit(Request $request)
@@ -50,7 +51,7 @@ class WorkController extends Controller
       if (empty($work)) {
         abort(404);
       }
-        return view('artist.work.edit', ['work_form' => $work]);
+        return view('artist.works.edit', ['work_form' => $work]);
     }
 
     public function update()

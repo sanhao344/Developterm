@@ -14,6 +14,5 @@ class Work extends Model
         'name' => 'required',
         'description' => 'required',
         'price' => 'required',
-        'image_path' => 'required',
     );
 }

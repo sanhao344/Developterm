@@ -18,7 +18,7 @@ class CreateWorksTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->decimal('price', 6,0);
-            $table->string('image_path');
+            $table->string('image_path')->nullable();;
             $table->timestamps();
         });
     }
