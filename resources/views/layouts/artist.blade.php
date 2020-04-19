@@ -85,6 +85,6 @@
         </div>
         <div class="sidebar">
             @yield('sidebar')
-         </div>
+        </div>
     </body>
 </html>
