@@ -1,8 +1,41 @@
-.main-sidebar {
-    background-color: rgb(177, 58, 58);
-    width: 200px;
-    height: 500px;
-    padding: 50px;
-    margin: o auto 40px 20px;
-    float: left;
+  .main-sidebar {
+    background-color: rgb(112, 114, 114);
+    width: 350px;
+    margin-left: 50px;
+  }
+
+  .sidebar {
+    margin-bottom: 20px;
+  }
+  .sidebar-menu {
+    position: sticky;
+    margin-bottom: 0;
+    top: 10px;
+    z-index: 1;
+  }
+
+  .header {
+      padding: 20px;
+      font: bold;
+      font-size: x-large;
+  }
+
+  #painting {
+      padding: 20px;
+  }
+
+  #sprayart {
+    padding: 20px;
+  }
+
+  #photograph {
+    padding: 20px;
+  }
+
+  #pottery {
+    padding: 20px;
+  }
+
+  #other {
+    padding: 20px;
   }

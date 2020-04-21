@@ -12,6 +12,7 @@
         @section('title', '作品投稿画面')
 
         @section('content')
+        @include('layouts.sidebar')
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 mx-auto">
@@ -56,5 +57,7 @@
                 </div>
             </div>
         @endsection
+
+        @include('layouts.footer')
     </body>
 </html>

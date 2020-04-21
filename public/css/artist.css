@@ -1,14 +1,17 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #807d7d;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
-body:after {
-  clear: both;
-  display: block;
-  content: " ";
+.py-4 {
+  display: flex;
+}
+
+.row {
+  margin-right: 35px;
+  margin-left: -65px;
 }
 
 h1 {

@@ -1,9 +1,44 @@
 .main-sidebar {
-  background-color: #b13a3a;
-  width: 200px;
-  height: 500px;
-  padding: 50px;
-  margin: o auto 40px 20px;
-  float: left;
+  background-color: #707272;
+  width: 350px;
+  margin-left: 50px;
+}
+
+.sidebar {
+  margin-bottom: 20px;
+}
+
+.sidebar-menu {
+  position: -webkit-sticky;
+  position: sticky;
+  margin-bottom: 0;
+  top: 10px;
+  z-index: 1;
+}
+
+.header {
+  padding: 20px;
+  font: bold;
+  font-size: x-large;
+}
+
+#painting {
+  padding: 20px;
+}
+
+#sprayart {
+  padding: 20px;
+}
+
+#photograph {
+  padding: 20px;
+}
+
+#pottery {
+  padding: 20px;
+}
+
+#other {
+  padding: 20px;
 }
 
