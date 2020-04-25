@@ -41,7 +41,7 @@ class ProfileController extends Controller
             $profile->fill($form);
             $profile->save();
       
-        return redirect('artist/profile/create');
+        return redirect('/home');
     }
 
     public function edit(Request $request)

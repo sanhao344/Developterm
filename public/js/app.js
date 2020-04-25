@@ -49761,6 +49761,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/home.scss":
+/*!**********************************!*\
+  !*** ./resources/sass/home.scss ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/sidebar.scss":
 /*!*************************************!*\
   !*** ./resources/sass/sidebar.scss ***!
@@ -49772,10 +49783,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/top.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/top.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*****************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/artist.scss ./resources/sass/footer.scss ./resources/sass/sidebar.scss ***!
-  \*****************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/artist.scss ./resources/sass/footer.scss ./resources/sass/sidebar.scss ./resources/sass/top.scss ./resources/sass/home.scss ***!
+  \**********************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49783,7 +49805,9 @@ __webpack_require__(/*! /Users/miyoshikazuyuki/Desktop/techboost/Reart/reart/res
 __webpack_require__(/*! /Users/miyoshikazuyuki/Desktop/techboost/Reart/reart/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /Users/miyoshikazuyuki/Desktop/techboost/Reart/reart/resources/sass/artist.scss */"./resources/sass/artist.scss");
 __webpack_require__(/*! /Users/miyoshikazuyuki/Desktop/techboost/Reart/reart/resources/sass/footer.scss */"./resources/sass/footer.scss");
-module.exports = __webpack_require__(/*! /Users/miyoshikazuyuki/Desktop/techboost/Reart/reart/resources/sass/sidebar.scss */"./resources/sass/sidebar.scss");
+__webpack_require__(/*! /Users/miyoshikazuyuki/Desktop/techboost/Reart/reart/resources/sass/sidebar.scss */"./resources/sass/sidebar.scss");
+__webpack_require__(/*! /Users/miyoshikazuyuki/Desktop/techboost/Reart/reart/resources/sass/top.scss */"./resources/sass/top.scss");
+module.exports = __webpack_require__(/*! /Users/miyoshikazuyuki/Desktop/techboost/Reart/reart/resources/sass/home.scss */"./resources/sass/home.scss");
 
 
 /***/ })
