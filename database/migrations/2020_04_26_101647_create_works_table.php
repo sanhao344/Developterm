@@ -17,8 +17,9 @@ class CreateWorksTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description');
+            $table->integer('genre_id');
             $table->decimal('price', 6,0);
-            $table->string('image_path')->nullable();;
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }
