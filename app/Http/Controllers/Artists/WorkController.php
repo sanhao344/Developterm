@@ -41,7 +41,7 @@ class WorkController extends Controller
             $works->fill($form);
             $works->save();
       
-        return redirect('/home');
+        return redirect('artist/works/create');
     }
 
     public function edit(Request $request)

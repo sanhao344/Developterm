@@ -7,15 +7,26 @@ use App\Work;
 
 class WorkController extends Controller
 {
-    //workのDBからの参照とviewへの受け渡し
-    public function index(){
-        $works = Work::orderby('name', 'asc')->get();
-        return view ('work.index', compact('works'));
+    protected $work;
+    protected $genre_id;
+
+    const NUM_PER_PAGE = 10;
+
+    // self::NUM_PER_PAGE組み込む
+    static function category(Request $request)
+    {   
+        $genre_id = $request->genre_id;
+        $list = Work::getGenreList($genre_id);
+        return view ('work.category', compact('list'));
     }
 
-    public function show($id){
-    $work = Work::findOrFail($id);
-    return view('work.show', compact('work'));
+    function index($id){
+        $work = Work::findOrFail($id);
+        return view('work.show', compact('work'));
     }
 
 }
+
+// fixme 
+// todo
+// プラグイン必要

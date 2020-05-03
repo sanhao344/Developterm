@@ -39,6 +39,16 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-md-2">ジャンル</label>
+                                <div class="col-md-10">
+                                    <input type="checkbox" name="genre_id" value="1"> 絵画
+                                    <input type="checkbox" name="genre_id" value="2"> スプレーアート
+                                    <input type="checkbox" name="genre_id" value="3"> 写真
+                                    <input type="checkbox" name="genre_id" value="4"> 陶器
+                                    <input type="checkbox" name="genre_id" value="5"> その他
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-md-2">価格</label>
                                 <div class="col-md-10">
                                     <input type="text" class="form-control" name="price" value="{{ old('price')}}">

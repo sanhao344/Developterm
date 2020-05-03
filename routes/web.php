@@ -29,4 +29,6 @@ Route::group(['prefix' => 'artist'], function() {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'WorkController@category')->name('home');
+Route::get('/work/category/', 'WorkController@category');
+
