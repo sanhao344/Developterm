@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/profile/create';
+    protected $redirectTo = '/home';
 
     // ログイン画面
     public function showLoginForm()
@@ -50,4 +50,15 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /* FIXME:ログアウトの動作確認して必要あれば修正*/
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/home');  // ログアウト後のリダイレクト先
+    }
+
 }
