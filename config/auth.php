@@ -36,7 +36,7 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'user' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
             'hash' => false,
+        ],
+
+        'artist' => [
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
     ],
 
@@ -71,6 +76,11 @@ return [
             'model' => App\User::class,
         ],
 
+        'artists' => [
+            'driver' => 'eloquent',
+            'model' => App\Artist::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -92,12 +102,19 @@ return [
     |
     */
 
+    /* TODO:パスワードリセットの設定する*/
     'passwords' => [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
         ],
+
+        'artists' => [
+            'provider' => 'artists',
+            'table' => 'password_resets',
+            'expire' => 15
+        ]
     ],
 
 ];
