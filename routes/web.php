@@ -16,7 +16,6 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'artist'], function() {
-    logger()->info('hoge');
     Route::get('profile/create', 'Artists\ProfileController@add')->middleware('auth');
     Route::post('profile/create', 'Artists\ProfileController@create')->middleware('auth');
     Route::get('profile/edit', 'Artists\ProfileController@edit')->middleware('auth');

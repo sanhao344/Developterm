@@ -20,7 +20,7 @@ class Work extends Model
     public static function getGenreList(?int $genre_id = 0)
     {
         $query = Work::where('genre_id', $genre_id);
-        
+
         return $query->get();
     }
 }

@@ -10,8 +10,6 @@ class WorkController extends Controller
     protected $work;
     protected $genre_id;
 
-    const NUM_PER_PAGE = 10;
-
     // self::NUM_PER_PAGE組み込む
     static function category(Request $request)
     {   
