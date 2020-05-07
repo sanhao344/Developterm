@@ -1,4 +1,4 @@
-@extends('layouts.artist')
+@extends('layouts.user')
 @section('title', 'プロフィール画面')
 
 @section('content')

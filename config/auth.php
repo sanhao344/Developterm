@@ -49,7 +49,7 @@ return [
 
         'artist' => [
             'driver' => 'session',
-            'provider' => 'admins',
+            'provider' => 'artists',
         ],
     ],
 

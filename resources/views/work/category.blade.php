@@ -8,7 +8,7 @@
         <title>Top</title>
     </head>
     <body>
-        @extends('layouts.front')
+        @extends('layouts.user')
         @section('title', 'トップ画面')
 
         @section('content')

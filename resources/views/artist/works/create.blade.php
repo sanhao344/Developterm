@@ -8,7 +8,7 @@
         <title>Profile</title>
     </head>
     <body>
-        @extends('layouts.artist')
+        @extends('layouts.user')
         @section('title', '作品投稿画面')
 
         @section('content')

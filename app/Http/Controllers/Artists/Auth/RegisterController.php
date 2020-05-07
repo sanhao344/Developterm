@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Artist\Auth; // Adminの追加
 
 use App\User;
+use App\Artist;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -30,6 +32,12 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/home';
 
+
+    public function showRegisterForm()
+    {
+        return view('artist.auth.register');  // 管理者用テンプレート
+    }
+
     /**
      * Create a new controller instance.
      *
@@ -50,7 +58,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:artists'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -63,10 +71,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Artist::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    protected function guard()
+        {
+            return \Auth::guard('artist'); //管理者認証のguardを指定
+        }
+
+
 }
