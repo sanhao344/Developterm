@@ -1,6 +1,5 @@
 <?php
 
-namespace App\Http\Controllers;
 namespace App\Http\Controllers\Artist;  // 追加
 
 use App\Http\Controllers\Controller;    // 追加
@@ -15,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:artist');
     }
 
     /**
@@ -25,6 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/home');
+        return view('artist.home');
     }
 }

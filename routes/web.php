@@ -29,5 +29,40 @@ Route::group(['prefix' => 'artist'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/work/category/', 'WorkController@category');
 
+/*
+|--------------------------------------------------------------------------
+| 1) User 認証不要
+|--------------------------------------------------------------------------
+*/
+Route::get('/', function () { return redirect('/home'); });
+ 
+/*
+|--------------------------------------------------------------------------
+| 2) User ログイン後
+|--------------------------------------------------------------------------
+*/
+Route::group(['middleware' => 'auth:user'], function() {
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
+/*
+|--------------------------------------------------------------------------
+| 3) Artist 認証不要
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'artist'], function() {
+    Route::get('/', function () { return redirect('/artist/home'); });
+    Route::get('auth/login', 'Artists\LoginController@showLoginForm')->name('artist.login');
+    Route::post('auth/login', 'Artists\LoginController@login');
+});
+ 
+/*
+|--------------------------------------------------------------------------
+| 4) Artist ログイン後
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'artist', 'middleware' => 'auth:artist'], function() {
+    Route::post('logout', 'Artists\LoginController@logout')->name('artist.logout');
+    Route::get('home', 'Artists\HomeController@index')->name('artist.home');
+});

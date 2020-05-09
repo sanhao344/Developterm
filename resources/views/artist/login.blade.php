@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.app_artist')
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
                     <div class="login-header card-header mx-auto">{{ __('messages.Loginpage') }}</div>
 
                     <div class="login-body card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('artist.login') }}">
                             @csrf
 
                             <div class="form-group row">

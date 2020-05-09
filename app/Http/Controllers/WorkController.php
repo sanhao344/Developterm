@@ -15,12 +15,12 @@ class WorkController extends Controller
     {   
         $genre_id = $request->genre_id;
         $list = Work::getGenreList($genre_id);
-        return view ('work.category', compact('list'));
+        return view ('user.category', compact('list'));
     }
 
     function index($id){
         $work = Work::findOrFail($id);
-        return view('work.show', compact('work'));
+        return view('user.show', compact('work'));
     }
 
 }

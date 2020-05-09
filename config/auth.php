@@ -36,6 +36,11 @@ return [
     */
 
     'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
         'user' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -44,7 +49,6 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
-            'hash' => false,
         ],
 
         'artist' => [
@@ -113,7 +117,7 @@ return [
         'artists' => [
             'provider' => 'artists',
             'table' => 'password_resets',
-            'expire' => 15
+            'expire' => 60,
         ]
     ],
 

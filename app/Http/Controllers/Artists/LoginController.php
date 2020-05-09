@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
-namespace App\Http\Controllers\Artist\Auth;
+namespace App\Http\Controllers\Artists;
 
-use App\Http\Controllers\Artist\Auth; 
+use App\Http\Controllers\Artists\Auth;   // 追加
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request; // 追加(参考：https://qiita.com/PKunito/items/a8300db38ce7d6949106)
+use Illuminate\Http\Request;
+use App\Artist; // FIXME:必要？
 
 class LoginController extends Controller
 {
@@ -28,12 +28,12 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/artist/home';
 
     // ログイン画面
     public function showLoginForm()
     {
-        return view('artist.auth.login'); //管理者ログインページのテンプレート
+        return view('artist.login'); //管理者ログインページのテンプレート
     }
 
     protected function guard()
@@ -48,17 +48,17 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest：artist')->except('logout');
     }
 
     /* FIXME:ログアウトの動作確認して必要あれば修正*/
     public function logout(Request $request)
     {
-        $this->guard()->logout();
-
-        $request->session()->invalidate();
-
-        return $this->loggedOut($request) ?: redirect('/home');  // ログアウト後のリダイレクト先
+        Auth::guard('artist')->logout();  //変更
+        $request->session()->flush();
+        $request->session()->regenerate();
+ 
+        return redirect('/artist/login');  //変更  // ログアウト後のリダイレクト先
     }
 
 }
