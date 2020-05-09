@@ -8,7 +8,7 @@
         <title>Home</title>
     </head>
     <body>
-        @extends('layouts.home')
+        @extends('layouts.home_artist')
         @section('title', 'ホーム画面')
 
         @section('content')

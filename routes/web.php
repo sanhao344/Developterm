@@ -53,8 +53,8 @@ Route::group(['middleware' => 'auth:user'], function() {
 */
 Route::group(['prefix' => 'artist'], function() {
     Route::get('/', function () { return redirect('/artist/home'); });
-    Route::get('auth/login', 'Artists\LoginController@showLoginForm')->name('artist.login');
-    Route::post('auth/login', 'Artists\LoginController@login');
+    Route::get('login', 'Artists\LoginController@showLoginForm')->name('artist.login');
+    Route::post('login', 'Artists\LoginController@login');
 });
  
 /*

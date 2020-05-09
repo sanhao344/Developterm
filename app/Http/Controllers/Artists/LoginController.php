@@ -48,7 +48,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest：artist')->except('logout');
+        $this->middleware('guest')->except('logout');
     }
 
     /* FIXME:ログアウトの動作確認して必要あれば修正*/
