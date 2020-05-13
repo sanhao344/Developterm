@@ -1,6 +1,6 @@
 <?php
 
-return [
+$authConf = [
 
     /*
     |--------------------------------------------------------------------------
@@ -122,3 +122,15 @@ return [
     ],
 
 ];
+
+$uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+
+// 管理者側の認証ガード設定
+if (strstr($uri, '/artist/') !== false || $uri === '/artist/login') {
+    $authConf['defaults'] = [
+        'guard'     => 'artist',
+        'passwords' => 'artists',
+    ];
+}
+
+return $authConf;

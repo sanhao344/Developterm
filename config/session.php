@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-return [
+$sessConf = [
 
     /*
     |--------------------------------------------------------------------------
@@ -197,3 +197,16 @@ return [
     'same_site' => null,
 
 ];
+
+$uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+
+// 管理者側用セッション
+if (strstr($uri, '/artist/') !== false || $uri === '/artist/login') {
+    $sessConf['cookie'] = env(
+        'SESSION_COOKIE_ARTIST',
+        str_slug(env('APP_NAME', 'laravel'), '_').'_artist_session'
+    );
+}
+
+return $sessConf;
+

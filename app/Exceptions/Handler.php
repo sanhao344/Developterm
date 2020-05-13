@@ -50,23 +50,19 @@ class Handler extends ExceptionHandler
         return parent::render($request, $exception);
     }
 
-        /**
-     * 認証していない場合にガードを見てそれぞれのログインページへ飛ばず
+    /**
+     * Convert an authentication exception into an unauthenticated response.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param AuthenticationException $exception
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     * @return \Illuminate\Http\Response
      */
-    public function unauthenticated($request, AuthenticationException $exception)
+    protected function unauthenticated($request, AuthenticationException $exception)
     {
-        if($request->expectsJson()){
-            return response()->json(['message' => $exception->getMessage()], 401);
-        }
- 
-        if (in_array('artist', $exception->guards())) {
-            return redirect()->guest(route('artist.login'));
-        }
- 
-        return redirect()->guest(route('login'));
+        $redirectTo = in_array('artist', $exception->guards(), true) ? 'artist.login' : 'login';
+
+        return $request->expectsJson()
+                    ? response()->json(['message' => $exception->getMessage()], 401)
+                    : redirect()->guest(route($redirectTo));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Artist;  // 追加
+namespace App\Http\Controllers\Artists;  // 追加
 
 use App\Http\Controllers\Controller;    // 追加
 use Illuminate\Http\Request;
@@ -24,6 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('artist.home');
+        return view('/artist/home');
     }
 }
