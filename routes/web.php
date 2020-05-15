@@ -66,3 +66,10 @@ Route::group(['prefix' => 'artist', 'middleware' => 'auth:artist'], function() {
     Route::post('logout', 'Artists\LoginController@logout')->name('artist.logout');
     Route::get('home', 'Artists\HomeController@index')->name('artist.home');
 });
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::group(['prefix'=>'works/{id}'],function(){ // FIXME:works/{id}は正しいのか？user/{id}か？？
+       Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
+       Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
+    });
+});

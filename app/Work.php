@@ -23,4 +23,9 @@ class Work extends Model
 
         return $query->get();
     }
+
+    public function favorite_users()
+    {
+            return $this->belongsToMany(User::class,'favorites','work_id','user_id')->withTimestamps();
+    }
 }
