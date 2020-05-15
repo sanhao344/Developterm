@@ -33,7 +33,7 @@
                                             <dd>商品名：{{ $category->name}}</dd>  
                                             <dd>商品価格：&yen;{{ $category->price}}</dd>
                                             <dd><a href="#">商品詳細ページ</a></dd>  
-                                            <dd><a href="#"><img src="cart.jpg" alt="ショッピングカート" width="" height="" /></a></dd>  
+                                            <dd><a href="#"><img src="cart.jpg" alt="ショッピングカート" width="" height="" /></a></dd> 
                                         </dl>  
                                     </li>  
                                     <!-- // 商品情報 -->
