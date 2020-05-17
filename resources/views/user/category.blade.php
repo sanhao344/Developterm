@@ -34,6 +34,17 @@
                                             <dd>商品価格：&yen;{{ $category->price}}</dd>
                                             <dd><a href="#">商品詳細ページ</a></dd>  
                                             <dd><a href="#"><img src="cart.jpg" alt="ショッピングカート" width="" height="" /></a></dd> 
+                                            @if (Auth::id() != $category->user_id)
+                                                @if (Auth::user()->is_favorite($category->id))
+                                                    {!! Form::open(['route' => ['favorites.unfavorite', $category->id], 'method' => 'delete']) !!}
+                                                        {!! Form::submit('いいね！を外す', ['class' => "button btn btn-warning"]) !!}
+                                                    {!! Form::close() !!}
+                                                @else
+                                                    {!! Form::open(['route' => ['favorites.favorite', $category->id]]) !!}
+                                                        {!! Form::submit('いいね！を付ける', ['class' => "button btn btn-success"]) !!}
+                                                    {!! Form::close() !!}
+                                                @endif
+                                            @endif 
                                         </dl>  
                                     </li>  
                                     <!-- // 商品情報 -->
