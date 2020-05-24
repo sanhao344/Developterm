@@ -44,6 +44,9 @@
                                                         {!! Form::submit('いいね！を付ける', ['class' => "button btn btn-success"]) !!}
                                                     {!! Form::close() !!}
                                                 @endif
+                                                <div class="text-right mb-2">いいね！
+                                                    <span class="badge badge-pill badge-success">{{ $category->favorite_users()->count() }}</span>
+                                                </div>
                                             @endif 
                                         </dl>  
                                     </li>  

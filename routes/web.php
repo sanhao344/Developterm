@@ -43,6 +43,9 @@ Route::get('/', function () { return redirect('/home'); });
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => 'auth:user'], function() {
+
+    \Log::debug("ログ出力テスト");
+
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/user/category/', 'WorkController@category');
 });
@@ -69,7 +72,7 @@ Route::group(['prefix' => 'artist', 'middleware' => 'auth:artist'], function() {
 });
 
 Route::group(['middleware'=>'auth'],function(){
-    Route::group(['prefix'=>'works/{id}'],function(){ // FIXME:works/{id}は正しいのか？user/{id}か？？
+    Route::group(['prefix'=>'user/{id}'],function(){ // FIXME:works/{id}は正しいのか？user/{id}か？？
        Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
        Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
     });

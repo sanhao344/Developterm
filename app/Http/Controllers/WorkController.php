@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Work;
+use App\User;
 
 class WorkController extends Controller
 {
@@ -15,16 +16,12 @@ class WorkController extends Controller
     {   
         $genre_id = $request->genre_id;
         $list = Work::getGenreList($genre_id);
-        return view ('user.category', compact('list'));
+
+        return view ('user.category', compact('list', '$count_favorite_users'));
     }
 
     function index($id){
         $work = Work::findOrFail($id);
         return view('user.show', compact('work'));
     }
-
 }
-
-// fixme 
-// todo
-// プラグイン必要

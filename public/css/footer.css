@@ -4,5 +4,7 @@
   padding: 40px 0px;
   background-color: #5a5656;
   color: #eee6e6;
+  position: fixed;
+  bottom: 0px;
 }
 

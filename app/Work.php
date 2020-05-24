@@ -16,7 +16,7 @@ class Work extends Model
         'price' => 'required',
     );
 
-    // DBからwhereでとってきた後pageinateの前にソートのコード入れる
+    // FIXME:DBからwhereでとってきた後pageinateの前にソートのコード入れる
     public static function getGenreList(?int $genre_id = 0)
     {
         $query = Work::where('genre_id', $genre_id);
@@ -26,6 +26,6 @@ class Work extends Model
 
     public function favorite_users()
     {
-            return $this->belongsToMany(User::class,'favorites','work_id','user_id')->withTimestamps();
+        return $this->belongsToMany(User::class,'favorites','work_id','user_id')->withTimestamps();
     }
 }
