@@ -21,9 +21,9 @@ class WorkController extends Controller
         return view ('user.category', compact('list'));
     }
 
-    function index($id){
-        $work = Work::findOrFail($requset->id);
-        return view('user.show', compact('work'));
+    function index(){
+        $works = Work::all();
+        return view('user.index', compact('works'));
     }
 
     function show(Request $request){
