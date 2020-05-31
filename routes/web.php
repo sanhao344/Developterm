@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth:user'], function() {
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/user/category/', 'WorkController@category');
+    Route::get('/user/show/', 'WorkController@show');
 });
 
 /*

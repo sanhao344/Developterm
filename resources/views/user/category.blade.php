@@ -29,10 +29,10 @@
                                     <!-- TODO:labelタグなどで商品名と価格を追記する -->
                                     <li>  
                                         <dl>  
-                                            <dt><a href="/artist/works/cteate"><img src="/storage/image/{{ $category->image_path}}" type="image/jpeg" alt="画像" width="250px" height="200px" /></a></dt>  
+                                            <dt><a href="/user/show/"><img src="/storage/image/{{ $category->image_path}}" type="image/jpeg" alt="画像" width="250px" height="200px" /></a></dt>  
                                             <dd>商品名：{{ $category->name}}</dd>  
                                             <dd>商品価格：&yen;{{ $category->price}}</dd>
-                                            <dd><a href="#">商品詳細ページ</a></dd>  
+                                            <dd><a href="/user/show?id=$category->id">商品詳細ページ</a></dd>  
                                             <dd><a href="#"><img src="cart.jpg" alt="ショッピングカート" width="" height="" /></a></dd> 
                                             @if (Auth::id() != $category->user_id)
                                                 @if (Auth::user()->is_favorite($category->id))

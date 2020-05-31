@@ -10,6 +10,7 @@ class WorkController extends Controller
 {
     protected $work;
     protected $genre_id;
+    protected $workId;
 
     // self::NUM_PER_PAGE組み込む
     static function category(Request $request)
@@ -17,11 +18,18 @@ class WorkController extends Controller
         $genre_id = $request->genre_id;
         $list = Work::getGenreList($genre_id);
 
-        return view ('user.category', compact('list', '$count_favorite_users'));
+        return view ('user.category', compact('list'));
     }
 
     function index($id){
-        $work = Work::findOrFail($id);
+        $work = Work::findOrFail($requset->id);
         return view('user.show', compact('work'));
     }
+
+    function show(Request $request){
+        $workId = $request->id;
+        $work_info = Work::where('id', $workId)->first();
+        return view('user.show', compact('work_info'));
+    }
+
 }
