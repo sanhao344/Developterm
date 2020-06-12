@@ -58,7 +58,7 @@ Route::group(['middleware' => 'auth:user'], function() {
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'artist'], function() {
-    Route::get('/', function () { return redirect('/artist/home'); });
+    Route::get('home', 'Artists\HomeController@index')->name('artist.home');
     Route::get('login', 'Artists\LoginController@showLoginForm')->name('artist.login');
     Route::post('login', 'Artists\LoginController@login');
 });
@@ -70,7 +70,9 @@ Route::group(['prefix' => 'artist'], function() {
 */
 Route::group(['prefix' => 'artist', 'middleware' => 'auth:artist'], function() {
     Route::post('logout', 'Artists\LoginController@logout')->name('artist.logout');
-    Route::get('home', 'Artists\HomeController@index')->name('artist.home');
+    Route::get('/category', 'WorkController@category');
+    Route::get('/show', 'WorkController@show');
+    Route::get('/index', 'WorkController@index');
 });
 
 Route::group(['middleware'=>'auth'],function(){

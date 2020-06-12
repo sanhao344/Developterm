@@ -6,7 +6,7 @@ use App\Http\Controllers\Artists\Auth;   // 追加
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use App\Artist; // FIXME:必要？
+
 
 class LoginController extends Controller
 {

@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
-namespace App\Http\Controllers\Artist\Auth; // Adminの追加
+namespace App\Http\Controllers\Artist\Auth; 
 
 use App\User;
 use App\Artist;
