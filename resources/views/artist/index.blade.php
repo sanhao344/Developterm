@@ -25,18 +25,18 @@
                                 @foreach ($works as $work)
                                     <li>  
                                         <dl>  
-                                            <dt><a href="/user/show/"><img src="/storage/image/{{ $work->image_path}}" type="image/jpeg" alt="画像" width="250px" height="200px" /></a></dt>  
+                                            <dt><a href="/artist/show/"><img src="/storage/image/{{ $work->image_path}}" type="image/jpeg" alt="画像" width="250px" height="200px" /></a></dt>  
                                             <dd>商品名：{{ $work->name}}</dd>  
                                             <dd>商品価格：&yen;{{ $work->price}}</dd>
-                                            <dd><a href="/user/show?id=$work->id">商品詳細ページ</a></dd>  
+                                            <dd><a href="/artist/show?id=$work->id">商品詳細ページ</a></dd>  
                                             <dd><a href="#"><img src="cart.jpg" alt="ショッピングカート" width="" height="" /></a></dd> 
                                             @if (Auth::id() != $work->user_id)
                                                 @if (Auth::user()->is_favorite($work->id))
-                                                    {!! Form::open(['route' => ['favorites.unfavorite', $work->id], 'method' => 'delete']) !!}
+                                                    {!! Form::open(['route' => ['artist.favorites.unfavorite', $work->id], 'method' => 'delete']) !!}
                                                         {!! Form::submit('いいね！を外す', ['class' => "button btn btn-warning"]) !!}
                                                     {!! Form::close() !!}
                                                 @else
-                                                    {!! Form::open(['route' => ['favorites.favorite', $work->id]]) !!}
+                                                    {!! Form::open(['route' => ['artist.favorites.favorite', $work->id]]) !!}
                                                         {!! Form::submit('いいね！を付ける', ['class' => "button btn btn-success"]) !!}
                                                     {!! Form::close() !!}
                                                 @endif

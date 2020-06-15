@@ -45,7 +45,7 @@
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
-                        <a class="work-index" href="{{ url('/user/index') }}">
+                        <a class="work-index" href="{{ url('/artist/index') }}">
                         {{ '作品一覧' }}
                         </a>
 

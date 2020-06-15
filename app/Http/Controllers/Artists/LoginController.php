@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Artists;
 
-use App\Http\Controllers\Artists\Auth;   // 追加
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -48,7 +47,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:artist')->except('logout');
     }
 
     /* FIXME:ログアウトの動作確認して必要あれば修正*/

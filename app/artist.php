@@ -36,4 +36,38 @@ class Artist extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function favorites()
+    {
+        return $this->belongsToMany(Work::class, 'favorites', 'user_id', 'work_id')->withTimestamps();
+    }
+
+    public function favorite($workId)
+    {
+        $exist = $this->is_favorite($workId);
+
+        if($exist){
+            return false;
+        }else{
+            $this->favorites()->attach($workId);
+            return true;
+        }
+    }
+
+    public function unfavorite($workId)
+    {
+        $exist = $this->is_favorite($workId);
+
+        if($exist){
+            $this->favorites()->detach($workId);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function is_favorite($workId)
+    {
+        return $this->favorites()->where('work_id',$workId)->exists();
+    }
 }

@@ -69,15 +69,18 @@ Route::group(['prefix' => 'artist'], function() {
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'artist', 'middleware' => 'auth:artist'], function() {
-    Route::post('logout', 'Artists\LoginController@logout')->name('artist.logout');
-    Route::get('/category', 'WorkController@category');
-    Route::get('/show', 'WorkController@show');
-    Route::get('/index', 'WorkController@index');
+    Route::post('/logout', 'Artists\LoginController@logout')->name('artist.logout');
+    Route::get('/category', 'Artists\WorkController@category');
+    Route::get('/show', 'Artists\WorkController@show');
+    Route::get('/index', 'Artists\WorkController@index');
 });
 
-Route::group(['middleware'=>'auth'],function(){
-    Route::group(['prefix'=>'user/{id}'],function(){ // FIXME:works/{id}は正しいのか？user/{id}か？？
-       Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
-       Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
-    });
+Route::group(['middleware'=>'auth','prefix'=>'user/{id}'],function(){
+    Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
+    Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
+});
+
+Route::group(['middleware'=>'auth','prefix'=>'artist/{id}'],function(){
+    Route::post('favorite','Artists\FavoriteController@store')->name('artist.favorites.favorite');
+    Route::delete('unfavorite','Artists\FavoriteController@destroy')->name('artist.favorites.unfavorite');
 });
