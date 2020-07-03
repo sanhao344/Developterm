@@ -53,6 +53,14 @@
                         {{ '作品一覧' }}
                         </a>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('messages.Register') }}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('artist.mypage') }}">{{ ('投稿する') }}</a>
+                        </li>
+
                         {{-- 以下を追記 --}}
                         <!-- Authentication Links -->
                         {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}

@@ -70,4 +70,6 @@ class User extends Authenticatable
     {
         return $this->favorites()->where('work_id',$workId)->exists();
     }
+
+
 }

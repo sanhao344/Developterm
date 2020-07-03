@@ -6,5 +6,7 @@ return [
     'E-Mail Address' => 'メールアドレス',
     'Password' => 'パスワード',
     'Remember Me' => 'ログイン情報を記憶する',
-    'Logout' => 'ログアウト'
+    'Logout' => 'ログアウト',
+    'Register' => '新規登録',
+    'Mypage' => 'マイページ',
 ];

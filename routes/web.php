@@ -73,6 +73,7 @@ Route::group(['prefix' => 'artist', 'middleware' => 'auth:artist'], function() {
     Route::get('/category', 'Artists\WorkController@category');
     Route::get('/show', 'Artists\WorkController@show');
     Route::get('/index', 'Artists\WorkController@index');
+    Route::get('/mypage', 'Artists\ArtistController@mypage')->name('artist.mypage');
 });
 
 Route::group(['middleware'=>'auth','prefix'=>'user/{id}'],function(){
