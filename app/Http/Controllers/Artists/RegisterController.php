@@ -71,9 +71,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return Artist::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'artist_name' => $data['artist_name'],
+            
+
         ]);
     }
 
