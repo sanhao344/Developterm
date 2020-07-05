@@ -15,17 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'artist'], function() {
-    Route::get('profile/create', 'Artists\ProfileController@add')->middleware('auth');
-    Route::post('profile/create', 'Artists\ProfileController@create')->middleware('auth');
-    Route::get('profile/edit', 'Artists\ProfileController@edit')->middleware('auth');
-    Route::post('profile/edit', 'Artists\ProfileController@update')->middleware('auth');
-    Route::get('works/create', 'Artists\WorkController@add')->middleware('auth');
-    Route::post('works/create', 'Artists\WorkController@create')->middleware('auth');
-    Route::get('works/edit', 'Artists\WorkController@edit')->middleware('auth');
-    Route::post('works/edit', 'Artists\WorkController@update')->middleware('auth');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -61,7 +50,8 @@ Route::group(['prefix' => 'artist'], function() {
     Route::get('home', 'Artists\HomeController@index')->name('artist.home');
     Route::get('login', 'Artists\LoginController@showLoginForm')->name('artist.login');
     Route::post('login', 'Artists\LoginController@login');
-    Route::post('auth/register', 'Artists\RegisterController@create')->name('artist.register');
+    Route::get('register', 'Artists\RegisterController@add')->name('artist.register');
+    Route::post('register', 'Artists\RegisterController@create')->name('artist.create');
 });
  
 /*
@@ -74,7 +64,15 @@ Route::group(['prefix' => 'artist', 'middleware' => 'auth:artist'], function() {
     Route::get('/category', 'Artists\WorkController@category');
     Route::get('/show', 'Artists\WorkController@show');
     Route::get('/index', 'Artists\WorkController@index');
-    Route::get('/mypage', 'Artists\ArtistController@mypage')->name('artist.mypage');
+    Route::get('/mypage', 'Artists\ArtistController@showmypage');
+    Route::get('profile/create', 'Artists\ProfileController@add');
+    Route::post('profile/create', 'Artists\ProfileController@create');
+    Route::get('profile/edit', 'Artists\ProfileController@edit');
+    Route::post('profile/edit', 'Artists\ProfileController@update');
+    Route::get('works/create', 'Artists\WorkController@add');
+    Route::post('works/create', 'Artists\WorkController@create');
+    Route::get('works/edit', 'Artists\WorkController@edit');
+    Route::post('works/edit', 'Artists\WorkController@update');
 });
 
 Route::group(['middleware'=>'auth','prefix'=>'user/{id}'],function(){

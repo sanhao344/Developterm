@@ -41,7 +41,7 @@
                     <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('messages.Register') }}</a>
+                        <a class="nav-link" href="{{ route('artist.register') }}">{{ __('messages.Register') }}</a>
                     </li>
                         <!-- Authentication Links -->
                         @guest

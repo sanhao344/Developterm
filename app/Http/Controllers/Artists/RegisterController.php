@@ -1,86 +1,38 @@
 <?php
 
-namespace App\Http\Controllers\Artist\Auth; 
+namespace App\Http\Controllers\Artists;
 
-use App\User;
-use App\Artist;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Artist;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-
-    public function showRegisterForm()
+    //
+    public function add()
     {
-        return view('artist.auth.register');  // 管理者用テンプレート
+        return view('artist.register');
     }
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    
+    //redirect先をartistのプロフィール画面にするのを忘れない
+    // FIXME:アーティスト名が重複できないように修正する
+    public function create(Request $request)
     {
-        $this->middleware('guest');
+        // 以下を追記
+      // Varidationを行う
+      $this->validate($request, Artist::$rules);
+      
+      $artist = new Artist;
+      $form = $request->all();
+
+      // フォームから送信されてきた_tokenを削除する
+      unset($form['_token']);
+
+      // データベースに保存する
+      $artist->fill($form);
+      $artist->save();
+    
+      return redirect('artist/works/create');
     }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:artists'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return Artist::create([
-            'artist_name' => $data['artist_name'],
-            
-
-        ]);
-    }
-
-    protected function guard()
-        {
-            return \Auth::guard('artist'); //管理者認証のguardを指定
-        }
-
 
 }

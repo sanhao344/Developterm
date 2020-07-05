@@ -16,7 +16,7 @@ class Artist extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'artist_name',
     ];
 
     /**
@@ -25,7 +25,7 @@ class Artist extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'remember_token',
     ];
 
     /**
@@ -33,9 +33,14 @@ class Artist extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+
+    protected $guarded = array('id');
+    
+    protected $table = 'artists';
+    
+    public static $rules = array(
+        'artist_name' => 'required',
+    );
 
     public function favorites()
     {

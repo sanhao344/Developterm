@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPurposeToUsersTabel extends Migration
+class AddArtistNameToArtistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddPurposeToUsersTabel extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('artists', function (Blueprint $table) {
             //
-            $table->integer('purpose');
+            $table->string('artist_name');
         });
     }
 
@@ -26,9 +26,9 @@ class AddPurposeToUsersTabel extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-            $table->dropColumn('purpose'); 
+        Schema::table('artists', function (Blueprint $table) {
+            
+            $table->dropColumn('artist_name');
         });
     }
 }

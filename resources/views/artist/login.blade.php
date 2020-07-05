@@ -12,6 +12,14 @@
                             @csrf
 
                             <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">アーティスト名</label>
+
+                                <div class="col-md-6">
+                                    <input id="artist_name" type="text" class="form-control @error('artist_name') is-invalid @enderror" name="artist_name" value="{{ old('artist_name') }}" required autocomplete="name" autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('messages.E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
