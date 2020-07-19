@@ -23,9 +23,16 @@ class ArtistController extends Controller
         $encrypted= Crypt::encrypt($request->password);
 
         if(count($artist) > 0){
+            if($user_pwd === $encrypted){
+                //アクセストークンの発行処理とセッションへの保存処理
+
+            }else{
+                //login画面でパスワードが異なっているというエラーの表示
+
+            }
+        }else{
+            //login画面でartist名が誤っているエラーの表示
 
         }
-
-
     }
 }
