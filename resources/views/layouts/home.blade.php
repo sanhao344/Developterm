@@ -51,7 +51,7 @@
                         </a>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('artist.mypage') }}">{{ ('投稿する') }}</a>
+                            <a class="nav-link" href="{{ route('artist.workadd') }}">{{ ('投稿する') }}</a>
                         </li>
 
                         {{-- 以下を追記 --}}

@@ -70,6 +70,10 @@ class User extends Authenticatable
     {
         return $this->favorites()->where('work_id',$workId)->exists();
     }
-
-
+    
+    // joinしているのに必要？
+    public function artist()
+    {
+        return $this->hasone('App\Artist')->withTimestamps();
+    }
 }

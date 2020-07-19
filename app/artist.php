@@ -75,4 +75,17 @@ class Artist extends Authenticatable
     {
         return $this->favorites()->where('work_id',$workId)->exists();
     }
+
+    public function artist_user()
+    {
+        return $this->belongsTo('App\User')->withTimestamps();
+    }
+
+    //joinしているのに必要？
+    public function is_user($encrypted)
+    {
+        return $this->artist_user()->where('password',$encrypted)->exists();
+    }
+
+    
 }

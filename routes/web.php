@@ -32,10 +32,6 @@ Route::get('/', function () { return redirect('/home'); });
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => 'auth:user'], function() {
-
-    \Log::debug("ログ出力テスト");
-
-    Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/user/category/', 'WorkController@category');
     Route::get('/user/show/', 'WorkController@show');
     Route::get('/user/index', 'WorkController@index');
@@ -48,8 +44,8 @@ Route::group(['middleware' => 'auth:user'], function() {
 */
 Route::group(['prefix' => 'artist'], function() {
     Route::get('home', 'Artists\HomeController@index')->name('artist.home');
-    Route::get('login', 'Artists\LoginController@showLoginForm')->name('artist.login');
-    Route::post('login', 'Artists\LoginController@login');
+    Route::get('login', 'Artists\LoginController@showLoginForm');
+    Route::post('login', 'Artists\LoginController@login')->name('artist.login');
     Route::get('register', 'Artists\RegisterController@add')->name('artist.register');
     Route::post('register', 'Artists\RegisterController@create')->name('artist.create');
 });
@@ -64,7 +60,7 @@ Route::group(['prefix' => 'artist', 'middleware' => 'auth:artist'], function() {
     Route::get('/category', 'Artists\WorkController@category');
     Route::get('/show', 'Artists\WorkController@show');
     Route::get('/index', 'Artists\WorkController@index');
-    Route::get('/mypage', 'Artists\ArtistController@showmypage');
+    Route::get('/mypage', 'Artists\WorkController@add')->name('artist.workadd');
     Route::get('profile/create', 'Artists\ProfileController@add');
     Route::post('profile/create', 'Artists\ProfileController@create');
     Route::get('profile/edit', 'Artists\ProfileController@edit');
