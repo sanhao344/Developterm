@@ -69,12 +69,12 @@ body {
   }
 
   .middle-container {
-    height: 400px;
+    height: 300px;
     margin: 0 auto;
   }
 
   .middle-wrapper {
-    width: 80%;
+    width: 100%;
     margin: 100 auto 0 auto;
   }
 
@@ -88,9 +88,46 @@ body {
     box-shadow: 0 0 8px grey;
   }
 
-  p.middle-message {
-    font-size: 1.0rem;
+  p.middle-message-sub {
+    font-size: 1.25em;
     margin-top: 40px;
+    font-weight: bold;
+
+  }
+
+  .middle2-container {
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  .middle2-wrapper {
+    width: 100%;
+    margin: 100 auto 0 auto;
+  }
+
+  h3.middle2-message {
+    font-size: 2rem;
+    color: #fff;
+    background-color: #3f3f3f;
+    padding: 10px 0;
+    width: 550px;
+    margin: 0 auto;
+    box-shadow: 0 0 8px grey;
+  }
+
+  p.middle-message-sub2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+
+  h5.middle2-message {
+    font-size: 1.5rem;
+    color: rgb(5, 5, 5);
+    padding: 10px 0;
+    width: 500px;
+    margin: 0 auto;
+    font-weight: bold;
   }
 
   .under-container {
@@ -112,13 +149,24 @@ body {
       width: 80%;
       height: 400px;
       margin: 0 auto;
+      text-align: center;
   }
 
   .items {
-      width: 30%;
-      height: 200px;
-      margin: 0 auto;
+      width: 50%;
+      height: 100px;
+      margin: 10px auto;
       font-size: 1.0rem;
+  }
+
+  a.colume {
+    color: black;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  .post_date {
+    font-weight: bold;
   }
 
 
